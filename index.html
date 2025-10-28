@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Click-N-Cart</title>
+
+  <style>
+
+       .close {
+            position: absolute;
+            top: 0;
+            right: 14px;
+            font-size: 42px;
+            transform: rotate(45deg);
+            cursor: pointer;
+        }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Top header (optional, like Amazon logo area) */
+    #barContent {
+      text-align: center;
+
+    }
+
+    /* Category bar */
+    .category-bar {
+      background: gray;
+      /* Amazon-like dark bar */
+      white-space: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .category-bar::-webkit-scrollbar {
+      display: none;
+      /* hide scroll bar, keep swipe/scroll */
+    }
+
+    .category-link {
+      display: inline-block;
+      padding: 12px 16px;
+      color: gray;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .top-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 10px 20px;
+      background-color: #f5f5f5;
+    }
+
+    #logo {
+      width: 80px;
+      height: auto;
+    }
+
+    .header-title {
+      flex: 1;
+      text-align: center;
+      font-family: "Times New Roman";
+      font-size: 1.5em;
+      color: #0074D9;
+      ;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 15px;
+    }
+
+    #login,#logout,
+    #signUp {
+      cursor: pointer;
+
+      font-family: "Times New Roman";
+      font-size: 110%;
+      padding-top: 30px;
+    }
+
+    #login:hover,
+#logout:hover,
+#signUp:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  
+  /* Apply hover changes relative to the base state */
+  font-size: 110%; /* Increase size */
+  padding-top: 30px; /* Increase padding */
+}
+
+    /* Responsive adjustments */
+    @media screen and (max-width: 600px) {
+      .top-header {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .header-title {
+        margin: 10px 0;
+        text-align: center;
+      }
+
+      .header-actions {
+        justify-content: center;
+      }
+    }
+
+    #emptyCart {
+      width: 70px;
+      height: auto;
+      align-self: center;
+      /* aligns vertically with Login/Signup */
+    }
+
+
+        /* [x] Close button */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+
+        .signup-modal,
+        .login-modal {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            /* for the darkbackground */
+            position: absolute;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: none;
+
+        }
+
+        .modal-content {
+            width: 500px;
+            height: 300px;
+            background-color: #FAF9F6;
+            border-radius: 4px;
+            text-align: center;
+            padding: 20px;
+            position: absolute;
+        }
+
+
+   input {
+            width: 300px;
+            height: 40px;
+            display: block;
+            margin: 15px auto;
+        }
+
+        button:hover {
+transform: scale(1.05); 
+ 
+        }
+        .submitBtn {
+          border: 2px solid #0074D9;
+          
+
+        }
+#logout
+{
+display:none ;
+}
+#emptyCart:hover
+{
+  transform: scale(1.05); 
+   cursor: pointer;
+   
+   
+
+}
+
+  </style>
+</head>
+
+<body>
+
+  <div class="top-header">
+    <img id="logo" src="Logo.png" alt="Logo">
+    <div class="header-title">Your Click, Your Cart!</div>
+    <div class="header-actions">
+      <img id="emptyCart" src="emptyCart.png" alt="Logo">
+      <div id="login">Login</div>
+      <div id = "logout">logout</div>
+      <div id="signUp">Signup</div>
+
+    </div>
+  </div>
+
+
+
+  <nav class="category-bar">
+    <div id="barContent">
+      <button class="category-link">Electronics</button>
+      <button class="category-link">Movies</button>
+      <button class="category-link">Books</button>
+      <button class="category-link">Toys</button>
+      <button class="category-link">Clothing</button>
+      <button class="category-link">Home</button>
+      <button class="category-link">Beauty</button>
+      <button class="category-link">Automotive</button>
+      <button class="category-link">Sports</button>
+    </div>
+  </nav>
+
+  <main style="padding:20px;">
+    <h1>Content Area</h1>
+    <p>This is your page content below the category bar.</p>
+  </main>
+
+  <div class="signup-modal">
+    <div class="modal-content">
+      <div class="close" onclick="hideForm(1)">+</div> <!-- closes  when click X  -->
+      <h1 id="titlePopup">Sign up</h1>
+      <form id="signupForm">
+        <input name="username-signup" type="text" placeholder="username"> <!-- signup form  -->
+        <input name="password-signup" type="password" placeholder="password">
+        <button class = "submitBtn" name="signupBtn" type="submit">Submit</button>
+        <input type="hidden" name="action" value="signup" />
+        <div id="signupError" style=color:red; margin-top: 10px;"></div>
+        <!-- div for he error message like wrong input  -->
+      </form>
+
+    </div>
+
+  </div> <!-- login form uses divs to hide the contents  -->
+  <div class="login-modal">
+    <div class="modal-content">
+      <div class="close" onclick="hideForm(0)">+</div>
+      <h1 id="titlePopup">Login</h1>
+      <form id="loginForm">
+        <input name="username-login" type="text" placeholder="username">
+        <input name="password-login" type="password" placeholder="password">
+        <button class = "submitBtn" name="loginBtn" type="submit">Submit</button>
+        <input type="hidden" name="action" value="login" />
+        <div id="loginError" style="color:red; margin-top: 10px;"></div>
+      </form>
+
+    </div>
+
+  </div>
+
+
+
+  <script>
+
+    function hideForm(num) {     // hides the forms
+      if (num == 1)
+        document.querySelector(".signup-modal").style.display = "none";          // hide  login/siguno function
+      else
+        document.querySelector(".login-modal").style.display = "none";
+
+    }
+
+
+    function hidePopup() {
+      document.getElementById("popupOverlay").style.display = "none";       //Hide popup function when  the x is click
+    }
+
+    const signupCell = document.getElementById("signUp");    // makes the forms visible when pressed
+    signupCell.addEventListener("click", function (e) {
+      e.preventDefault();
+      document.querySelector(".signup-modal").style.display = "flex";
+    });
+
+    const loginCell = document.getElementById("login");
+    loginCell.addEventListener("click", function (e) {
+      e.preventDefault();
+      document.querySelector(".login-modal").style.display = "flex";        //on click the becomes visilbe
+
+    });
+
+
+ document.addEventListener("DOMContentLoaded", function () {
+
+
+
+
+            document.getElementById("signupForm").addEventListener("submit", function (e) {     // click lister for sigunpform and prevents page load
+                e.preventDefault();
+                const formData = new FormData(this);
+
+                document.getElementById("signupError").innerText = "";        //clear error message div
+
+                fetch("index.php", {
+                    method: "POST",
+                    body: formData,
+                    headers: { "X-Requested-With": "XMLHttpRequest" } // tell PHP this is AJAX
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            window.location.href = "login.php"; //  redirect
+                        } else {
+                            document.getElementById("signupError").innerText = data.message;  //error message div text is added
+                        }
+                    });
+            });
+
+            document.getElementById("loginForm").addEventListener("submit", function (e) {
+                e.preventDefault();
+                const formData = new FormData(this);      // creats an instance for the form data
+
+                fetch("index.php", {
+                    method: "POST",
+                    body: formData,
+                    headers: { "X-Requested-With": "XMLHttpRequest" }         //header for the data
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+
+                            window.location.href = "login.php"; // redirect to next page
+                        } else {
+                            document.getElementById("loginError").innerText = data.message;     //if there's an error dispay message
+
+                        }
+                    });
+            });
+
+        });
+
+
+  </script>
+</body>
+
+</html>
