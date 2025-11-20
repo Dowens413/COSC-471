@@ -1,6 +1,6 @@
 <?php
 session_start();
-include './resouce/db.php';
+include './resource/db.php';
 
 // Only allow admin
 if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'admin') {
