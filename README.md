@@ -1,4 +1,3 @@
-Simple e-commerce project built for COSC-471 using HTML, CSS, PHP, and MySQL.
 
 🛒 Click N Cart
 
