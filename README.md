@@ -9,6 +9,7 @@ A simple e-commerce project built for COSC-471 using HTML, CSS, PHP, and MySQL.
 - David Dooley
 - Deep Patel
 - Nawal Chishty
+- DuJuan Owens
 
 ## 📦 Prerequisites
 - PHP installed
