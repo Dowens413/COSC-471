@@ -154,11 +154,16 @@ if (!isset($_SESSION['cart'])) {
             headers: { "X-Requested-With": "XMLHttpRequest" }
           })
           .then(res => res.json())
-          .then(data => {
+            .then(data => {
             if (data.success) {
               hideForm(0);
               alert("Login Successful!");
-              window.location.reload(); 
+              if(data.message==="Welcome, admin!")
+              {
+                 window.location.href = "admin.php"; //if the user is an admin redirect to the admin page .
+              }
+              else
+                 window.location.reload();   // reload the page to update the page to now logged in 
             } else {
               document.getElementById("loginError").innerText = data.message;
             }

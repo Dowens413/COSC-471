@@ -2,48 +2,100 @@
 session_start();
 include './resource/db.php';
 
-// Only allow admin
+
 if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'admin') {
-    header("Location: index.php");
+    header("Location: index.php");  //if user is not an admin or have a username redirect to another page 
     exit;
 }
 
-$items = $conn->query("SELECT * FROM items");
+
+$username = $_SESSION['username'];
+
+// Run query
+/*
+$stmt = $conn->prepare("SELECT username, order_date, total_items, total_amount,shipping_address, status FROM `order` WHERE username = ?");
+
+$stmt->bind_param("s", $username);
+$stmt->execute();
+$result = $stmt->get_result();
+*/
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Admin Dashboard</title>
-  <style>
-    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-    th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
-    th { background-color: #f0f0f0; }
-    h1 { margin-bottom: 10px; }
-  </style>
+    
+    <meta charset="UTF-8">
+    <title>Your Orders</title>
+    <link rel="stylesheet" type="text/css" href="./resource/adminIndex.css">
+</head>
+
+    <style>
+     
+    </style>
 </head>
 <body>
-  <h1>Items Table</h1>
-  <table>
-    <tr>
-      <th>SKU</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Category</th>
-      <th>Quantity</th>
-      <th>Price</th>
-    </tr>
-    <?php while ($row = $items->fetch_assoc()): ?>
-    <tr>
-      <td><?= $row['sku'] ?></td>
-      <td><?= $row['name'] ?></td>
-      <td><?= $row['description'] ?></td>
-      <td><?= $row['category'] ?></td>
-      <td><?= $row['quantity'] ?></td>
-      <td>$<?= number_format($row['price'], 2) ?></td>
-    </tr>
-    <?php endwhile; ?>
-  </table>
+      <div class="top-header">
+    <img id="logo" src="resource/Logo.png" alt="Logo">
+    <div class="header-title">Your Click, Your Cart!</div>
+    <div class="header-actions">
+      <img id="emptyCart" src="resource/emptyCart.png" alt="Logo">
+      <div id="logout" style="display:none;">Logout</div>
+    </div>
+  </div>
+
+<main style="padding:20px; background: linear-gradient(180deg, #808080 0%, #ccc 50%, #fff 100%);">
+<h1>Welcome Administrator </h1>
+
+<nav class="navbar">
+        <ul class="nav-list">
+
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropbtn">
+                    📦 Items <span class="arrow">▼</span>
+                </a>
+                <div class="dropdown-content">
+                    <a href="admin_view_items.php">View Items</a>. <!-- Will direct to the view page if login as adminxs -->
+
+                    <a href="admin_add_item.php">Add Item</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropbtn">
+                    🚚 Orders <span class="arrow">▼</span>
+                </a>
+                <div class="dropdown-content">
+                    <a href="admin_order.php">View Orders/Change status</a>
+                </div>
+            </li>
+
+        </ul>
+    </nav>
+
+    <div style="padding: 20px;">
+        <h2 id="view-item">View Items List</h2>
+        <h2 id="add-item">Add New Item Form</h2>
+        <hr>
+        <h2 id="view-orders">View Orders List</h2>
+        <h2 id="change-status">Order Status Update</h2>
+    </div>
+
+
+
+</main>
+
+    <script>
+         document.getElementById("logo").addEventListener("click", function() {
+      window.location.href = "index.php";
+    });
+     document.getElementById("emptyCart").addEventListener("click", function() {
+      window.location.href = "cart.php";
+    });
+
+
+
+
+    </script>
 </body>
 </html>

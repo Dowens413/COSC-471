@@ -11,7 +11,7 @@ if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'admin') {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sku = $_POST['sku'];
     $name = $_POST['name'];
-    $description = $_POST['description'];
+    $description = $_POST['description'];    //setting the values sent from the client
     $category = $_POST['category'];
     $quantity = $_POST['quantity'];
     $price = $_POST['price'];
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!in_array(strtolower($category), array_map('strtolower', $category_arr))) {
         echo "Invalid category";
         exit;
-    }
+    } //makes sure the admin enters a correct category that matchin g the webistes setup.
 
     $stmt = $conn->prepare("INSERT INTO items (sku, name, description, category, quantity, price) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("isssii", $sku, $name, $description, $category, $quantity, $price);

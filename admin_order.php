@@ -8,11 +8,11 @@ if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'admin') {
 }
 
 // Handle AJAX status update
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {   //if a post request comes do this...
     $order_id = $_POST['order_id'];
     $status = $_POST['status'];
 
-    $stmt = $conn->prepare("UPDATE `order` SET status=? WHERE order_id=?");
+    $stmt = $conn->prepare("UPDATE `order` SET status=? WHERE order_id=?");  //update the order status based on the order id 
     $stmt->bind_param("ii", $status, $order_id);
 
     if ($stmt->execute()) {
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {
 }
 
 // Fetch all orders for display
-$result = $conn->query("SELECT * FROM `order` ORDER BY order_date DESC");
+$result = $conn->query("SELECT * FROM `order` ORDER BY order_date DESC");    // call the order table  ticks(`) are needed because of order is a mysql parameter
 $orders = [];
 if ($result) {
     while ($row = $result->fetch_assoc()) {

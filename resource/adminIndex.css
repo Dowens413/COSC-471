@@ -1,0 +1,199 @@
+/* --- Keep the initial navbar styles from before --- */
+body { margin: 0; font-family: sans-serif; background-color: #f8f9fa; }
+.navbar { background-color: #343a40; padding: 0 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+.nav-list { list-style: none; padding: 0; margin: 0; display: flex; justify-content: flex-start; }
+.nav-link { display: block; padding: 15px 20px; text-decoration: none; color: #f8f9fa; font-weight: 600; transition: background-color 0.3s; }
+.nav-link:hover { background-color: #007bff; color: white; }
+
+/* --- Dropdown Specific Styles --- */
+
+/* 1. Container for the dropdown menu */
+.dropdown {
+    position: relative; /* Crucial: ensures dropdown content positions relative to this item */
+}
+
+/* 2. Style for the main link with the arrow */
+.dropbtn {
+    /* Ensures the main link has the same style */
+    display: block; 
+}
+.arrow {
+    margin-left: 5px;
+    font-size: 0.7em;
+}
+
+/* 3. The actual content/sub-menu (hidden by default) */
+.dropdown-content {
+    display: none; /* Hide the dropdown content by default */
+    position: absolute; /* Crucial: lets it float over other content */
+    background-color: #f1f1f1;
+    min-width: 160px; /* Minimum width for the menu */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1; /* Ensures it is on top of other content */
+}
+
+/* 4. Links inside the dropdown */
+.dropdown-content a {
+    color: #343a40;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block; /* Makes each link take the full width */
+    font-weight: normal;
+}
+
+/* 5. Hover effect for links inside the dropdown */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* 6. SHOW THE DROPDOWN CONTENT ON HOVER */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+       .close {
+            position: absolute;
+            top: 0;
+            right: 14px;
+            font-size: 42px;
+            transform: rotate(45deg);
+            cursor: pointer;
+        }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Top header (optional, like Amazon logo area) */
+    #barContent {
+      text-align: center;
+
+    }
+
+    /* Category bar */
+    .category-bar {
+      background: gray;
+      /* Amazon-like dark bar */
+      white-space: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .category-bar::-webkit-scrollbar {
+      display: none;
+      /* hide scroll bar, keep swipe/scroll */
+    }
+
+    .category-link {
+      display: inline-block;
+      padding: 12px 16px;
+      color: gray;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .top-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 10px 20px;
+      background-color: #d1d1d1;
+    }
+
+    #logo {
+      width: 80px;
+      height: auto;
+    }
+
+    .header-title {
+      flex: 1;
+      text-align: center;
+      font-family: "Times New Roman";
+      font-size: 2.0em;
+      font-weight: 600;
+      color: #0074D9;
+      ;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 15px;
+    }
+
+    #login,#logout,
+    #signUp {
+      cursor: pointer;
+
+      font-family: "Times New Roman";
+      font-size: 110%;
+      padding-top: 30px;
+    }
+
+    #login:hover,
+#logout:hover,
+#signUp:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  
+  /* Apply hover changes relative to the base state */
+  font-size: 110%; /* Increase size */
+  padding-top: 30px; /* Increase padding */
+}
+
+    /* Responsive adjustments */
+    @media screen and (max-width: 600px) {
+      .top-header {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .header-title {
+        margin: 10px 0;
+        text-align: center;
+      }
+
+      .header-actions {
+        justify-content: center;
+      }
+    }
+
+    #emptyCart {
+      width: 70px;
+      height: auto;
+      align-self: center;
+      /* aligns vertically with Login/Signup */
+    }
+
+
+
+        button:hover {
+transform: scale(1.05); 
+ 
+        }
+        .submitBtn {
+          border: 2px solid #0074D9;
+          
+
+        }
+#logout
+{
+display:none ;
+}
+#emptyCart:hover
+{
+  transform: scale(1.05); 
+   cursor: pointer;
+   
+   
+
+}
+#logout
+{
+  display: none;
+}
+

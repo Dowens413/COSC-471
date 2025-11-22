@@ -58,7 +58,7 @@ $result = $stmt->get_result();
         <th>Status</th>
     </tr>
 
-    <?php while ($row = $result->fetch_assoc()): ?>. <!-- while theres still. results frm the query create the table  -->
+    <?php while ($row = $result->fetch_assoc()): ?> <!-- while theres still. results frm the query create the table  -->
         <tr>
             <td><?= htmlspecialchars($row['username']) ?></td>
             <td><?= htmlspecialchars($row['order_date']) ?></td>
@@ -73,7 +73,7 @@ $result = $stmt->get_result();
     </main>
 
     <script>
-         document.getElementById("logo").addEventListener("click", function() {. //button handle for logo and cart
+         document.getElementById("logo").addEventListener("click", function() { //button handle for logo and cart
       window.location.href = "index.php";
     });
      document.getElementById("emptyCart").addEventListener("click", function() {

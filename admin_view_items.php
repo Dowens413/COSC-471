@@ -1,6 +1,6 @@
 <?php
 session_start();
-include './resource/db.php';
+include './resource/db.php';  //importing database connection
 
 // Only allow admin
 if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'admin') {
@@ -8,7 +8,7 @@ if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'admin') {
     exit;
 }
 
-$items = $conn->query("SELECT * FROM items");
+$items = $conn->query("SELECT * FROM items");      //view items from the items table 
 ?>
 
 <!DOCTYPE html>

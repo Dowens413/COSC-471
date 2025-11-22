@@ -71,7 +71,7 @@ function calcTotal() {
     $total = 0;
 
     foreach ($_SESSION['cart'] as $sku => $qty) {
-        $stmt = $conn->prepare("SELECT price FROM items WHERE sku=?");
+        $stmt = $conn->prepare("SELECT price FROM items WHERE sku=?");   //uses the item table to calculate the price uses the sku
         $stmt->bind_param("s", $sku);
         $stmt->execute();
         $result = $stmt->get_result();
