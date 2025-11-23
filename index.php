@@ -238,7 +238,7 @@ if (!isset($_SESSION['cart'])) {
         .then(res => res.text())
         .then(data => {
           if (data === "logged_out") {
-            window.location.href = "login.php";
+            window.location.href = "index.php";
           }
         });
     });

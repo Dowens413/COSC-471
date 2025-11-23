@@ -123,6 +123,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="submit">Complete Order</button>
     </form>
 </main>
+    <script>
+          document.getElementById("logo").addEventListener("click", function() {
+      window.location.href = "index.php";
+    });
+
+    </script>
 
 </body>
 </html>
