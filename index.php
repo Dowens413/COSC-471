@@ -48,9 +48,16 @@ if (!isset($_SESSION['cart'])) {
   </nav>
 
   <!-- Main Content -->
-  <main style="padding:20px; background: linear-gradient(180deg, #808080 0%, #ccc 50%, #fff 100%);">
-    <div id="itemsContainer"></div>
-  </main>
+  <main style="
+  padding:20px; 
+  background: linear-gradient(180deg, #808080 0%, #ccc 50%, #fff 100%);
+  display: flex;
+  justify-content: center;     /* Centers table horizontally */
+  align-items: flex-start;      /* Change to 'center' to center vertically too */
+  min-height: 80vh;             /* Gives height so centering works properly */
+">
+  <div id="itemsContainer" style="width: fit-content;"></div>
+</main>
 
   <!-- Signup Modal -->
   <div class="signup-modal" style="display:none;">

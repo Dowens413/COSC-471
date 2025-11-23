@@ -63,7 +63,14 @@ $total_quantity = array_sum($_SESSION['cart']);
 </div>
 
 <!-- Main Content -->
-<main style="padding:20px; background: linear-gradient(180deg, #808080 0%, #ccc 50%, #fff 100%);">
+<main style="
+  padding:20px; 
+  background: linear-gradient(180deg, #808080 0%, #ccc 50%, #fff 100%);
+  display: flex;
+  justify-content: center;     /* Centers table horizontally */
+  align-items: flex-start;      /* Change to 'center' to center vertically too */
+  min-height: 80vh;             /* Gives height so centering works properly */
+">
 
 <?php if (count($_SESSION['cart']) === 0): ?>
     <div class="empty-cart-message">Your cart is empty.</div>
