@@ -1,7 +1,7 @@
 <?php
 // Generate a random confirmation code
 // Example: A7F-92C-4B1
-$code = strtoupper(bin2hex(random_bytes(10)));
+$code = strtoupper(bin2hex(random_bytes(10)));  
 ?>
 <!DOCTYPE html>
 <html lang="en">

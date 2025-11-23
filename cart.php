@@ -5,6 +5,13 @@ include './resource/db.php';
 // Check if user is logged in
 $loggedIn = isset($_SESSION['username']);
 
+if(!$loggedIn)
+{
+    header("Location: index.php");  //if user is not an admin or have a username redirect to another page 
+    exit;
+
+}
+
 // Make sure cart exists
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];

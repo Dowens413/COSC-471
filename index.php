@@ -216,7 +216,7 @@ if (!isset($_SESSION['cart'])) {
   formData.append("quantity", quantity);
   formData.append("add", "1"); // IMPORTANT FIX
 
-  const response = await fetch("/routes/add_to_cart.php", {
+  const response = await fetch("routes/add_to_cart.php", { //no /route/add_to_cart with xampp
     method: "POST",
     body: formData
   });
