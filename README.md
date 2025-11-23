@@ -33,7 +33,9 @@ CREATE USER 'dj'@'localhost' IDENTIFIED BY 'pcplayer';
 GRANT ALL PRIVILEGES ON myDB.* TO 'dj'@'localhost';
 FLUSH PRIVILEGES;
 USE myDB;
+```
 Create tables:
+```
 CREATE TABLE users (
     username VARCHAR(25) NOT NULL PRIMARY KEY,
     password VARCHAR(25)
