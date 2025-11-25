@@ -106,4 +106,4 @@ if ($conn->connect_error) {
 🚀 Running the project
 Inside the COSC-471 project folder, start the PHP server:
 `php -S localhost:8000`
-Open http://localhost:8000 in your browser.👥 Authors - Johney Domas - David 
+Open http://localhost:8000 in your browser.
